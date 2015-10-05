@@ -1,0 +1,218 @@
+body{
+    /*background: -webkit-linear-gradient(left, rgba(164, 228, 255, 0.75) 0,rgba(124, 228, 247, 0.33)50%, rgba(187, 238, 243, 0.81) 100%);*/
+    margin-top: 220px;
+    margin-bottom: 120px;
+}
+
+.player{
+    /*height:120px;*/
+    width:100%;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.17);
+    height: 160px;
+    margin: 20px 0;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.card{
+    display: inline-block;
+    width: 120px;
+    height: 140px;
+    margin-top: 10px;
+}
+
+#dealer{
+    background-color: rgb(246, 250, 255);
+    box-shadow: 2px 2px 12px 3px rgba(0, 0, 0, 0.17);
+    width: 100%;
+    height: 220px;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 2;
+}
+
+.player-info{
+    display: inline-block;
+    position: relative;
+    float: left;
+    width: 350px;
+    height: 100%;
+    background-color: rgb(228, 228, 228);;
+    transition: all .2s ease-in-out;
+}
+
+
+
+.dealer-info{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.dealer-cards{
+    display: inline-block;
+
+}
+
+.stake-input{
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    left: 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+.stake-input input{
+    width : 100%;
+    text-align: center;
+}
+
+.fixed-button-panel{
+    background-color: #6dc3c0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width : 100%;
+}
+
+.btn{
+    background-color: #6d70c3;
+    width: 200px;
+    margin: 10px 20px;
+    font-weight: bold;
+    padding: 20px;
+    font-size: 30px;
+    color:white;
+}
+
+#add-player-div{
+    position:absolute;
+    top: 10px;
+    left: 10px;
+    width:200px;
+    padding:20px;
+    background-color: rgba(90, 162, 159, 0.59);
+    text-align: center;
+    float: left;
+    z-index: 3;
+}
+
+#add-player-btn{
+    margin-left: 0;
+    width: 100%;
+    margin: 0;
+    font-weight: normal;
+}
+#add-player-div label{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+#add-player-div input{
+    font-size: 15px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#player-buttons-div{
+    display: inline-block;
+    padding:5px;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+
+#player-name{
+    font-size: 50px;
+    color: #429cc3;
+    font-weight: bold;
+    margin-left: 9px;;
+
+}
+
+#player-balance{
+    font-size: 40px;
+    color: #63adab;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 5px;
+
+}
+
+.card-value{
+     font-size: 70px;
+     color: rgb(34, 179, 103);
+     float: right;
+     margin-right: 20px;
+}
+
+.card-value-dealer{
+    margin-left: 20px;
+}
+
+.lost{
+    position: absolute;
+    top: 20px;
+    left: 400px;
+    font-size: 70px;
+    color: rgb(172, 45, 69);
+    font-weight: bold;
+    background-color: rgb(198, 198, 198);
+    padding: 10px;
+    transform: rotate(-9deg);
+    box-shadow: 11px 15px 19px 0px #8c8a87;
+}
+#win{
+    position: absolute;
+    top: 20px;
+    left: 400px;
+    font-size: 70px;
+    color: rgb(44, 172, 65);
+    font-weight: bold;
+    background-color: rgb(198, 198, 198);
+    padding: 10px;
+    transform: rotate(-9deg);
+    box-shadow: 11px 15px 19px 0px #8c8a87;
+}
+
+#draw{
+    position: absolute;
+    top: 20px;
+    left: 400px;
+    font-size: 70px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    background-color: rgb(198, 198, 198);
+    padding: 10px;
+    transform: rotate(-9deg);
+    box-shadow: 11px 15px 19px 0px #8c8a87;
+}
+
+.player-turn{
+    transform: translateX(-30px);
+    background-color: #635ee1;
+}
+
+#stake-error-msg{
+    font-size: 20px;
+    color: darkred;
+    text-align: center;
+}
+
+#player-stats{
+    width: 100.2%;
+    position: absolute;
+    bottom: -30px;
+    font-size: 20px;
+    background-color: #9ec2f1;
+}
+
+#player-stats span{
+    margin: 0 20px;
+}

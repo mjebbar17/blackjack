@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="app.css"/>
+</head>
+
+<body ng-controller="MainCtrl">
+
+<div class="container">
+
+    <div id="blackjack-table">
+
+
+        <div id="dealer">
+
+            <div class="dealer-info">
+                DEALER
+            </div>
+
+            <div class="dealer-cards" ng-show="!dealer.showCards && dealer.cards">
+                <image class="card" ng-src="./cards/{{dealer.cards[0].text}}.svg"></image>
+                <div class="card-value-dealer card-value">{{dealer.cards[0].value}}</div>
+            </div>
+
+            <div class="dealer-cards" ng-show="dealer.showCards">
+                <image class="card" ng-repeat="card in dealer.cards" ng-src="./cards/{{card.text}}.svg"></image>
+                <div class="card-value-dealer card-value">{{dealer.cardValue}}</div>
+
+            </div>
+
+        </div>
+
+
+        <div class="player" ng-repeat="player in dealer.players" >
+            <div ng-class="player.turn ? 'player-turn' : 'not-player-turn'" class="player-info">
+                <p id="player-name">{{player.name | uppercase}}</p>
+                <p id="player-balance">${{player.balance}}</p>
+                <div class="lost" ng-show="player.busted">BUSTED</div>
+                <div id="win" ng-show="player.won">WIN</div>
+                <div class="lost" ng-show="player.lost">LOSE</div>
+                <div id="draw" ng-show="player.draw">DRAW</div>
+                <div class="stake-input">
+                    ENTER STAKE:
+                    <input ng-disabled="gameInProgress" type="number" ng-model="player.stake"/>
+                </div>
+            </div>
+
+            <div class="card-value">
+                {{player.cardValue}}
+                <span ng-show="player.showAceValue"> / {{player.valueWithAce}}</span>
+            </div>
+
+            <image class="card" ng-repeat="card in player.cards" ng-src="./cards/{{card.text}}.svg"></image>
+
+            <div id="player-stats" ng-show="player.stats">
+                <span>GAMES : {{player.stats.games}}</span>
+                <span>WINS : {{player.stats.wins}}</span>
+                <span>LOSSES : {{player.stats.losses}}</span>
+                <span>DRAWS : {{player.stats.draws}}</span>
+            </div>
+
+        </div>
+
+        <div id="add-player-div">
+            <label for="addPlayer">Add Player</label>
+            <input type="text" name="addPlayer" placeholder="Enter player name" ng-model="newPlayerName" id=""/>
+            <button id="add-player-btn" class="btn" ng-click="addPlayer()" ng-disabled="gameInProgress">Add</button>
+        </div>
+
+        <div class="fixed-button-panel">
+            <div id="stake-error-msg" ng-show="stakeInputError">Please check player stakes are correct.</div>
+            <div id="player-buttons-div">
+                <button class="btn button" ng-click="nextRound()" ng-show="!gameInProgress">Deal</button>
+                <button class="btn button" ng-click="playerHits()" ng-show="gameInProgress">Hit</button>
+                <button class="btn button" ng-click="playerStands()" ng-show="gameInProgress">Stand</button>
+                <button class="btn button" ng-click="playerDoubles()" ng-show="currentPlayer.canDouble">Double</button>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
