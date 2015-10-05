@@ -4,6 +4,7 @@
 
     var express = require('express');
     var bodyParser = require('body-parser');
+    var nconf = require('nconf');
     var app = express();
 
     // support json

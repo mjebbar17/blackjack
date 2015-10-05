@@ -73,7 +73,7 @@
 
         <div class="fixed-button-panel">
             <div id="stake-error-msg" ng-show="stakeInputError">Please check player stakes are correct.</div>
-            <div id="player-buttons-div">
+            <div id="player-buttons-div" ng-show="dealer.players.length">
                 <button class="btn button" ng-click="nextRound()" ng-show="!gameInProgress">Deal</button>
                 <button class="btn button" ng-click="playerHits()" ng-show="gameInProgress">Hit</button>
                 <button class="btn button" ng-click="playerStands()" ng-show="gameInProgress">Stand</button>

@@ -15,22 +15,18 @@
             //setup game
             var dealer = new Dealer();
             dealer.shuffleDeckOfcards();
-            var player1 = new Player("mus");
-            var player2 = new Player("jay");
-            player1.getStats($http);
-            dealer.addPlayerToGame(player1);
-            dealer.addPlayerToGame(player2);
 
             //points to the index of the player in the dealer object
             var currentPlayer = 0;
 
             $scope.dealer = dealer;
-            $scope.currentPlayer = dealer.players[currentPlayer];
-            dealer.players[currentPlayer].isTurn = true;
 
 
             $scope.addPlayer = function(){
-                dealer.addPlayerToGame(new Player($scope.newPlayerName));
+                if($scope.newPlayerName.length > 1) {
+                    dealer.addPlayerToGame(new Player($scope.newPlayerName));
+                }
+
             };
 
             $scope.playerHits = function(){
@@ -56,6 +52,7 @@
                     $scope.stakeInputError = false;
                     dealer.startNewRound($http);
                     currentPlayer = 0;
+                    dealer.players[currentPlayer].turn = true;
                     $scope.currentPlayer = dealer.players[currentPlayer];
                 }else{
                     $scope.stakeInputError = true;
